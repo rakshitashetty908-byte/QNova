@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QNova | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="logo small">Q</div>
+            <div>
+                <h2>QNova</h2>
+                <small>Smart Queue</small>
+            </div>
+        </div>
+
+        <nav>
+            <a class="active" href="dashboard.html">🏠 Dashboard</a>
+            <a href="queue.html">🎫 My Queue</a>
+            <a href="services.html">🏢 Services</a>
+            <a href="notifications.html">🔔 Notifications</a>
+            <a href="profile.html">👤 Profile</a>
+            <a href="about.html">ℹ️ About QNova</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button onclick="logoutUser()" class="logout-btn">
+                🚪 Logout
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                
+                <h2 >  Welcome to your QNova!</h2>
+            </div>
+
+            <div class="top-actions">
+                <a href="notifications.html" class="notification">🔔</a>
+                <div class="user-mini">
+                    <div class="avatar">R</div>
+                    <span id="userName">User</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+
+            <div>
+                <span class="badge">SMART QUEUE SYSTEM</span>
+
+                <h2>Queue smarter.<br>
+                    <span>Wait less.</span>
+                </h2>
+
+                <p>
+                    QNova helps users monitor queues, receive tokens
+                    and track their position in real time.
+                </p>
+
+                <a href="services.html" class="hero-btn">
+                    Join a Queue →
+                </a>
+            </div>
+
+            <div class="hero-visual">
+                <div class="circle">
+                    <div class="queue-number">12</div>
+                    <small>Current Token</small>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="section-title">
+            <h2>Queue Overview</h2>
+            <span>Live Status</span>
+        </div>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">🎫</div>
+                <div>
+                    <p>My Token</p>
+                    <h2>Q-018</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">🟢</div>
+                <div>
+                    <p>Now Serving</p>
+                    <h2>Q-012</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">👥</div>
+                <div>
+                    <p>People Ahead</p>
+                    <h2>06</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">⏱️</div>
+                <div>
+                    <p>Est. Waiting</p>
+                    <h2>18 min</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Live Queue</h3>
+                        <p class="muted">Current queue movement</p>
+                    </div>
+
+                    <span class="live">
+                        <i></i> LIVE
+                    </span>
+                </div>
+
+                <div class="queue-progress">
+                    <div class="progress-info">
+                        <span>Now Serving</span>
+                        <strong>Q-012</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div style="width:68%"></div>
+                    </div>
+
+                    <div class="queue-end">
+                        <span>Your Token: Q-018</span>
+                        <span>6 people ahead</span>
+                    </div>
+                </div>
+
+                <a href="queue.html" class="outline-btn">
+                    View Queue Details
+                </a>
+
+            </div>
+
+            <div class="panel quick-panel">
+
+                <h3>Quick Actions</h3>
+
+                <a href="services.html" class="quick-item">
+                    <span>🎫</span>
+                    <div>
+                        <strong>Join Queue</strong>
+                        <small>Get a new token</small>
+                    </div>
+                    <b>→</b>
+                </a>
+
+                <a href="queue.html" class="quick-item">
+                    <span>📊</span>
+                    <div>
+                        <strong>Track Queue</strong>
+                        <small>View live position</small>
+                    </div>
+                    <b>→</b>
+                </a>
+
+                <a href="notifications.html" class="quick-item">
+                    <span>🔔</span>
+                    <div>
+                        <strong>Notifications</strong>
+                        <small>View updates</small>
+                    </div>
+                    <b>→</b>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<script>
+function logoutUser() {
+    const confirmLogout = confirm("Are you sure you want to logout from QNova?");
+
+    if (confirmLogout) {
+        // Clear login information
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // Go back to the login/home page
+        window.location.href = "index.html";
+    }
+}
+</script>
+</body>
+</html>
+
+</body>
+</html>

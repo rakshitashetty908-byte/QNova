@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QNova | Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #5b21b6, #7c3aed, #2563eb);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .circle.one {
+            width: 280px;
+            height: 280px;
+            top: -80px;
+            left: -70px;
+        }
+
+        .circle.two {
+            width: 220px;
+            height: 220px;
+            bottom: -60px;
+            right: -50px;
+            animation-delay: 2s;
+        }
+
+        .circle.three {
+            width: 100px;
+            height: 100px;
+            top: 15%;
+            right: 18%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Main container */
+        .login-container {
+            width: 900px;
+            max-width: 92%;
+            min-height: 560px;
+            display: flex;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Left side */
+        .welcome-section {
+            width: 50%;
+            padding: 55px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 15px;
+            background: white;
+            color: #6d28d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo h1 {
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        .welcome-section h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .welcome-section h2 span {
+            color: #ddd6fe;
+        }
+
+        .welcome-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.18);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Right side */
+        .login-section {
+            width: 50%;
+            background: rgba(255,255,255,0.96);
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-section h2 {
+            color: #1f2937;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .login-subtitle {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box span {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 12px;
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+            background: #f9fafb;
+        }
+
+        .input-box input:focus {
+            border-color: #7c3aed;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(124,58,237,0.10);
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #6b7280;
+        }
+
+        .forgot {
+            color: #6d28d9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Login button */
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 18px rgba(99,102,241,0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(99,102,241,0.4);
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .signup-text a {
+            color: #6d28d9;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .secure-text {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        /* Mobile */
+        @media (max-width: 750px) {
+
+            .login-container {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .welcome-section,
+            .login-section {
+                width: 100%;
+            }
+
+            .welcome-section {
+                padding: 35px;
+            }
+
+            .welcome-section h2 {
+                font-size: 28px;
+            }
+
+            .features {
+                display: none;
+            }
+
+            .login-section {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+
+    <div class="login-container">
+
+        <!-- LEFT SIDE -->
+        <div class="welcome-section">
+
+            <div class="logo">
+                <div class="logo-icon">Q</div>
+                <h1>QNova</h1>
+            </div>
+
+            <h2>
+                Smart Queue,
+                <span>Better Experience.</span>
+            </h2>
+
+            <p>
+                Manage your queue easily, track your token in real time,
+                and reduce waiting uncertainty with QNova.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">🎫</div>
+                    <span>Easy token management</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <span>Smart queue visualization</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔔</div>
+                    <span>Real-time queue updates</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <span>Save waiting time</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="login-section">
+
+            <h2>Welcome Back 👋</h2>
+
+            <p class="login-subtitle">
+                Login to continue to your QNova dashboard
+            </p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label>Email Address</label>
+
+                    <div class="input-box">
+                        <span>📧</span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Password</label>
+
+                    <div class="input-box">
+                        <span>🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+
+                    <a href="#" class="forgot">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button type="submit" class="login-btn">
+                    Login to QNova →
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <p class="signup-text">
+                Don't have an account?
+                <a href="signup.html">Create Account</a>
+            </p>
+
+            <p class="secure-text">
+                🔐 Your information is securely stored
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGIN SCRIPT -->
+    <script>
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (email === "" || password === "") {
+                alert("Please enter your email and password.");
+                return;
+            }
+
+            // Save login information
+            localStorage.setItem("qNovaEmail", email);
+
+            // Get name from email
+            const name = email.split("@")[0];
+
+            localStorage.setItem("qNovaName", name);
+
+            // Go to dashboard
+            window.location.href = "dashboard.html";
+
+        });
+
+    </script>
+
+</body>
+</html>

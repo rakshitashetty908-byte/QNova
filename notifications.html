@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QNova | Notifications</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+
+<div class="brand">
+<div class="logo small">Q</div>
+<div>
+<h2>QNova</h2>
+<small>Smart Queue</small>
+</div>
+</div>
+
+<nav>
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="queue.html">🎫 My Queue</a>
+<a href="services.html">🏢 Services</a>
+<a class="active" href="notifications.html">🔔 Notifications</a>
+<a href="profile.html">👤 Profile</a>
+<a href="about.html">ℹ️ About QNova</a>
+</nav>
+
+<div class="sidebar-bottom">
+<button onclick="logoutUser()" class="logout-btn">🚪 Logout</button>
+</div>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+<div>
+<h1>Notifications 🔔</h1>
+<p class="muted">Stay updated with your queue</p>
+</div>
+</header>
+
+<div class="notification-list">
+
+<div class="notification-card unread">
+<div class="notification-icon">🎫</div>
+<div>
+<h3>Your token is active</h3>
+<p>Your token <strong>Q-018</strong> has been successfully added to the queue.</p>
+<small>2 minutes ago</small>
+</div>
+</div>
+
+<div class="notification-card">
+<div class="notification-icon">🔔</div>
+<div>
+<h3>Queue update</h3>
+<p>There are currently 6 people ahead of you.</p>
+<small>5 minutes ago</small>
+</div>
+</div>
+
+<div class="notification-card">
+<div class="notification-icon">⏱️</div>
+<div>
+<h3>Waiting time updated</h3>
+<p>Your estimated waiting time is approximately 18 minutes.</p>
+<small>10 minutes ago</small>
+</div>
+</div>
+
+<div class="notification-card">
+<div class="notification-icon">👋</div>
+<div>
+<h3>Welcome to QNova</h3>
+<p>Thank you for using our smart queue visualization system.</p>
+<small>Today</small>
+</div>
+</div>
+
+</div>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
